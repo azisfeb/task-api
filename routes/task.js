@@ -1,48 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const Task = require('../models/task');
+const { getTasks, getTaskById, saveTask, updateTask, deleteTask } = require('../controllers/task');
 
-router.get('/', (req, res, next) => {
-    // const {
-    //     query
-    // } = req;
-    // Task.find();
-    return res.json(req);
-});
-router.post('/', (req, res, next) => {
-    // const {
-    //     body
-    // } = req;
-    // new Task(body);
-    return res.json(req);
-});
-router.get('/:id', (req, res, next) => {
-    // const {
-    //     params: {
-    //         id
-    //     }
-    // } = req;
-    // Task.findById(id);
-    return res.json(req);
-});
-router.put('/:id', (req, res, next) => {
-    // const {
-    //     params: {
-    //         id
-    //     },
-    //     body
-    // } = req;
-    // Task.findByIdAndUpdate(id, body);
-    return res.json(req);
-});
-router.delete('/:id', (req, res, next) => {
-    // const {
-    //     params: {
-    //         id
-    //     }
-    // } = req;
-    // Task.findByIdAndDelete(id);
-    return res.json(req);
-});
+router.get('/', getTasks);
+router.post('/', saveTask);
+router.get('/:id', getTaskById);
+router.put('/:id', updateTask);
+router.delete('/:id', deleteTask);
 
 module.exports = router;

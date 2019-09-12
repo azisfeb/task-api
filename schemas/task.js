@@ -1,7 +1,7 @@
 const { Schema } = require('mongoose');
 
 const task = new Schema({
-    owner: require('./employee'),
+    owner: String,
     title: String,
     description: String,
     priority: String,

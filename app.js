@@ -8,6 +8,7 @@ const jwt = require('express-jwt');
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const employeeRouter = require('./routes/employee');
+const taskRouter = require('./routes/task');
 
 const logErrors = require('./middlewares/logErrors');
 const errorHandler = require('./middlewares/errorHandler');
@@ -37,6 +38,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/employees', employeeRouter);
+app.use('/task', taskRouter);
 
 app.use(logErrors);
 app.use(errorHandler);
