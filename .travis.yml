@@ -1,15 +1,17 @@
 language: node_js
 node_js:
-  - "stable"
-
-before_script: 
-  - npm install
+- stable
+before_script:
+- npm install
 script:
-  - npm run test
-deploy: 
+- npm run test
+deploy:
   provider: heroku
   api_key:
-    secret: K1311722f-5c84-435e-ba12-80162b9d436cEY
+    secure: yFADExs1z1xVo4VL2W0t32d6hoTdAaZZ3kmD0D0/GeogDMmr9PLc84Smjram2CjacMC/FryPQSx8JcUiErb8iV+2sVhPacnnJVnah6uEZhXU4ComnRaGAhTjUQn6EK/S9kqD19O1JH+KtSGc2bFw7mCXVexUFVlOMk1cLTRZ3HatFTuegXfddr8gr/VxpQPcXTu/Wo7aO3JvrVL6Z5uNvUX0/WEMdFzckDcLU4/tC9TbGk1Re+0Tqmib4e3mvlRFAO2NUBAMnBjJfofQjFxXWIwpgMCynf+LkV4XEqAQ4YwOdPnmVD3NDN8cQOthCkbaMCt0j0RS7aHlELeeISp0QxgqcHgsKAcPJS3UA/62DxC8ied4Ig837nVDGt9R4sMAsPrnETcOfERhpRVuW3Gl3JJcs86pFQaOPFje/Sp54QVZbJzW9j7w1ixQ/5STJj7s0lYem0as5Si2JUKMSWuDQBlEiYhD99mE+FtyF5DNcIJkNLx8r7PGBsDCeYtLaKntupzW3gEoVxJMxHSV5XZql1QZ/Vh659ngP1a650a0o/07W6mf08YnmASRAA8Zv4Lw4MMOhFdgKLDWpT02CI1uFI2uFrTKb7k36yET9n5MHo+dGR+PZax6qCrFD7VGe8lVg14RV0g0felTXgl+Tutr3o7NeQ96afYSPilri87rNaw=
   app: task-service-api
   on:
     repo: azisfeb/task-api
+env:
+  global:
+    secure: hRyfmWnV/4ia2ZSBv0Z/nPHGYvCpThMirh6ZeZ8YKgEWwoCwxGU4kAyqXZWfGVYaGR4mkmbWVK5kP4IxBUaUImnxSBFXkMk4VXcMpLtLPtHT3m3tJx9bzM6Ngsd0QwKKiA002QvrMohz3IHN9B2Q/SmrYiqsy0DZ/Kn1hkDpK28kR2QIKkAZx1sfnWdXImEK7ZtxyFzB0qxaDwAD+Bj83XYrbUDZKoVZ2kiMNuGTxSzGYx4oepWnvmjfrF6dTYRbouL4+XPC7Eu8tUokywjYYUwyQe0J4OoWw7kg6n5X6saU290bK345PzbyG5pQwA2cKB+7+t1j23rt2ljq+8Zs9cjOYqa5vbwa4iU0RkkNbPpTYZKRx+sgnPS++uLMIwCobDCVlj76nDYtyZAeo2+rMDIgCF8R4HWdtiRglFWVg8BOoYSaUAGBwDeYTV2BCvbJLdw8LaHbpe8ytY3ukbWBWARUOxpWuXV+Y7goNWSqSBXU5aHbVx+QRpfZHbrnIxDt2q4tnQH4HQlSuSQqnKj8zVEv0HmAOsqvx4TiVbnss6V1um3cWTk5PzJodBhk+jZC83kCvadzAjoa2yfWbMIzjL0o3vvR7PZxRLfnS3ytOVfFHJkTpIqzbTca3jkvX1l0fbfTrJcCnNhWC9cTAxuriZTfp5VOVpje84BI5t6tcMM=
