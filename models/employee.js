@@ -1,5 +1,5 @@
-const db = require('../db');
+const mongoose = require('mongoose');
 
-const Employee = new db.model('Employee', require('../schemas/employee'));
+const Employee = mongoose.model('Employee', require('../schemas/employee'));
 
 module.exports = Employee;

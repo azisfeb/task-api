@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "stable"
+
+install: 
+  - npm install
+
+script:
+  - npm run test
+
+deploy: 
+  provider: heroku
+  api_key:
+    secret: K1311722f-5c84-435e-ba12-80162b9d436cEY
+  app: task-service-api
+  on:
+    repo: azisfeb/task-api

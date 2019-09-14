@@ -4,6 +4,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const jwt = require('express-jwt');
+const { connect } = require('./db');
+
 
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
@@ -16,19 +18,21 @@ const errorHandler = require('./middlewares/errorHandler');
 const app = express();
 
 app.use(cors());
-app.use(jwt({
-    secret: process.env.SECRET_KEY
-}).unless({
-    path: [
-        '/',
-        {
-            url: '/auth/login',
-            methods: [
-                'POST'
-            ]
-        }
-    ]
-}));
+if(process.env.NODE_ENV !== 'test'){
+    app.use(jwt({
+        secret: process.env.SECRET_KEY
+    }).unless({
+        path: [
+            '/',
+            {
+                url: '/auth/login',
+                methods: [
+                    'POST'
+                ]
+            }
+        ]
+    }));
+}
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -39,6 +43,8 @@ app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/employees', employeeRouter);
 app.use('/task', taskRouter);
+
+connect()
 
 app.use(logErrors);
 app.use(errorHandler);

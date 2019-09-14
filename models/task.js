@@ -1,5 +1,5 @@
-const db = require('../db');
+const mongoose = require('mongoose');
 
-const Task = new db.model('Task', require('../schemas/task'));
+const Task = mongoose.model('Task', require('../schemas/task'));
 
 module.exports = Task;
