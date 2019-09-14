@@ -17,7 +17,7 @@ module.exports = {
             return res.json({
                 token: jwt.sign({
                     ...employee
-                }, process.env.SECRET_KEY)
+                }, 'myAppSecretKey')
             });
         });
     },
