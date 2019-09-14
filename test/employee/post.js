@@ -5,6 +5,9 @@ const requrest = require('supertest');
 
 const app = require('../../app');
 const conn = require('../../db');
+let user = "user-test" + Math.round(Math.random(100));
+let password = Date.now();
+
 
 describe('POST /employees', () => {
     before((done) => {
@@ -21,7 +24,7 @@ describe('POST /employees', () => {
 
     it('OK, creating new employees works', (done) => {
         requrest(app).post('/employees')
-            .send({ username: 'user-test', password: 'test123', role: 'employee' })
+            .send({ username: user, password: password, role: 'employee' })
             .then((res) => {
                 const { body } = res;
                 expect(body).to.contain.property('_id');

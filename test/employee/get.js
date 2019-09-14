@@ -22,7 +22,6 @@ describe('GET /employees', () => {
     it('OK, get all employees', (done) => {
         requrest(app).get('/employees')
             .then((res) => {
-                const { body } = res;
                 done();
             })
             .catch(err => done(err))
