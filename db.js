@@ -4,27 +4,28 @@ const mongoose = require('mongoose');
 function connect(){
     return new Promise((resolve, reject) => {
 
-        // if(process.env.NODE_ENV === 'test'){
-        //     const Mockgoose = require('mockgoose').Mockgoose;
-        //     const mockgoose = new Mockgoose(mongoose);
+        if(process.env.NODE_ENV === 'test'){
+            const Mockgoose = require('mockgoose').Mockgoose;
+            const mockgoose = new Mockgoose(mongoose);
 
-        //     mockgoose.prepareStorage()
-        //         .then(() => {
-        //             mongoose.connect(process.env.MONGODB_HOST,
-        //                 {useNewUrlParser: true})
-        //             .then((res, err) => {
-        //                 if(err) return reject(err);
-        //                 resolve();
-        //             })
-        //         })
-        // } else { 
+            mockgoose.prepareStorage()
+                .then(() => {
+                    mongoose.connect("mongodb://admin:admin321@ds247101.mlab.com:47101/task-manager",
+                        {useNewUrlParser: true})
+                    .then((res, err) => {
+                        if(err) return reject(err);
+                        resolve();
+                    })
+                })
+                .catch(err => console.error(err))
+        } else { 
             mongoose.connect("mongodb://admin:admin321@ds247101.mlab.com:47101/task-manager",
                 {useNewUrlParser: true, useUnifiedTopology: true})
             .then((res, err) => {
                 if(err) return reject(err);
                 resolve();
             })
-        // }
+        }
     })
 }
 
