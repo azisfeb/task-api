@@ -16,7 +16,7 @@ const logErrors = require('./middlewares/logErrors');
 const errorHandler = require('./middlewares/errorHandler');
 
 const app = express(); 
-
+ 
 app.use(cors());
 if(process.env.NODE_ENV !== 'test'){
     app.use(jwt({
