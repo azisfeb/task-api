@@ -20,7 +20,7 @@ const app = express();
 app.use(cors());
 if(process.env.NODE_ENV !== 'test'){
     app.use(jwt({
-        secret: process.env.SECRET_KEY
+        secret: 'myAppSecretKey'
     }).unless({
         path: [
             '/',
