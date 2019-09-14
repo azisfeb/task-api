@@ -18,7 +18,7 @@ function connect(){
         //             })
         //         })
         // } else {
-            mongoose.connect(process.env.MONGODB_HOST,
+            mongoose.connect("mongodb://admin:admin321@ds247101.mlab.com:47101/task-manager",
                 {useNewUrlParser: true, useUnifiedTopology: true})
             .then((res, err) => {
                 if(err) return reject(err);
