@@ -8,7 +8,7 @@ const { connect } = require('./db');
 
 
 const indexRouter = require('./routes/index');
-// const authRouter = require('./routes/auth');
+const authRouter = require('./routes/auth');
 const employeeRouter = require('./routes/employee');
 const taskRouter = require('./routes/task');
 
@@ -25,7 +25,7 @@ if(process.env.NODE_ENV !== 'test'){
         path: [
             '/',
             {
-                url: '/',
+                url: '/auth/login',
                 methods: [
                     'POST'
                 ]
@@ -40,7 +40,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-// app.use('/auth', authRouter);
+app.use('/auth', authRouter);
 app.use('/employees', employeeRouter);
 app.use('/task', taskRouter);
 

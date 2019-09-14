@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { login } = require('../controllers/auth');
 
 /* GET home page. */
-router.post('/', login);
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
 
 module.exports = router;
