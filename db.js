@@ -19,7 +19,7 @@ function connect(){
         //         })
         // } else {
             mongoose.connect(process.env.MONGODB_HOST,
-                {useNewUrlParser: true})
+                {useNewUrlParser: true, useUnifiedTopology: true})
             .then((res, err) => {
                 if(err) return reject(err);
                 resolve();
