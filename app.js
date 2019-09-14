@@ -15,7 +15,7 @@ const taskRouter = require('./routes/task');
 const logErrors = require('./middlewares/logErrors');
 const errorHandler = require('./middlewares/errorHandler');
 
-const app = express();
+const app = express(); 
 
 app.use(cors());
 if(process.env.NODE_ENV !== 'test'){
