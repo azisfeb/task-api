@@ -17,7 +17,7 @@ function connect(){
         //                 resolve();
         //             })
         //         })
-        // } else {
+        // } else { 
             mongoose.connect("mongodb://admin:admin321@ds247101.mlab.com:47101/task-manager",
                 {useNewUrlParser: true, useUnifiedTopology: true})
             .then((res, err) => {
