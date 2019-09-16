@@ -20,7 +20,8 @@ module.exports = {
             return res.json({
                 token: jwt.sign({
                     ...employee
-                }, 'myAppSecretKey')
+                }, 'myAppSecretKey'),
+                user: employee
             });
         });
     },
