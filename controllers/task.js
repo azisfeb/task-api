@@ -53,7 +53,6 @@ module.exports = {
             body,
             user
         } = req;
-        console.log(user)
         Task.findById(id, (err, task) => {
             if (err) return next(err);
             if (!task) return next(createError(404, new Error('Task: Not found')));
@@ -69,16 +68,18 @@ module.exports = {
         const {
             params: {
                 id
-            }
+            },
+            user
         } = req;
-        Task
-            .where({
-                owner: user._id
-            })
-            .findByIdAndDelete(id)
-            .exec((err, task) => {
-                if(err) return next(err);
-                return res.json(task);
-            })
+        Task.findById(id, (err, task) => {
+            if (err) return next(err);
+            if (!task) return next(createError(404, new Error('Task: Not found')));
+            if (task.owner != user._doc._id) return next(createError(403, new Error('Update Task: Forbidden')));
+            Task.findByIdAndDelete(id)
+                .exec((err, task) => {
+                    if(err) return next(err);
+                    return res.json(task);
+                })
+        });
     }
 }
